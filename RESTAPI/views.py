@@ -12,8 +12,12 @@ class CityTemperature(generics.ListAPIView):
     def get(self, request, *args, **kwargs):
         city_name = self.kwargs['slug']
         num_days = request.query_params['days']
-        temperature_results = city_temperature(city_name, num_days)
-        return JsonResponse(temperature_results)
+        if(validate_days_as_integer(num_days) == True):
+            temperature_results = city_temperature(city_name, int(num_days))
+            return JsonResponse(temperature_results)
+        else:
+            return JsonResponse({"message": "Wrong input. Enter a digit!"})
+
 
 '''
 this method interfaces with the WeatherAPI  and returns temperature for the specified city 
@@ -54,3 +58,7 @@ def city_temperature(city, days):
     }
 
     return final_data
+
+''' validates if number of days is an integer '''
+def validate_days_as_integer(int_variable):
+    return int_variable.isdigit()
