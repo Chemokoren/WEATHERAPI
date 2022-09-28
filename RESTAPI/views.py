@@ -11,7 +11,7 @@ class CityTemperature(generics.ListAPIView):
 
     def get(self, request, *args, **kwargs):
         city_name = self.kwargs['slug']
-        num_days = request.query_params['number_of_days']
+        num_days = request.query_params['days']
         temperature_results = city_temperature(city_name, num_days)
         return JsonResponse(temperature_results)
 
@@ -19,8 +19,8 @@ class CityTemperature(generics.ListAPIView):
 this method interfaces with the WeatherAPI  and returns temperature for the specified city 
 for the duration given by num_days
 '''
-def city_temperature(city, num_days):
-    weather_data = WeatherAPI().fetch_weather_data(city, num_days)
+def city_temperature(city, days):
+    weather_data = WeatherAPI().fetch_weather_data(city, days)
     new_info = weather_data['forecast']['forecastday']
     all_data = []
     sum_average_data = 0

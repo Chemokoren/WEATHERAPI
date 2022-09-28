@@ -54,5 +54,5 @@ class TestViews(TestCase):
     returns 401 if not authenticated, else 200 status code
     '''
     def test_city_temperature(self):
-        response = self.client.get(self.list_url, {'number_of_days': 2},HTTP_AUTHORIZATION=self.return_active_token(),format='json')
+        response = self.client.get(self.list_url, {'days': 2},HTTP_AUTHORIZATION=self.return_active_token(),format='json')
         self.assertEquals(response.status_code, 200)

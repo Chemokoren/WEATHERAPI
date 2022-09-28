@@ -33,11 +33,9 @@ To deploy this project run
 ## Demo
 
 1. Register a test user using the following url
-
 /rest-auth/registration/
 
 2. Generate access token using the link
-
 /api/token/
 
 3. Use the access token to query the weatherapi 
@@ -64,4 +62,22 @@ based on your needs
   coverage run --source "RESTAPI" manage.py test -v 2 && coverage report && coverage html
 
 ```
+
+
+## API Reference
+
+#### Get data for a single city
+
+```http
+  GET /api/locations/{city}/?days={number_of_days}
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+
+#### city_temperature(city, days)
+
+Takes two parameters i.e, city and days and the city's temperature
 
