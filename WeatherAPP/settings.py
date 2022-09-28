@@ -138,7 +138,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Open Weather Map
-WEATHER_API_KEY="8daf5858f7cb4323b0291415222809"
+WEATHER_API_KEY=""
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
