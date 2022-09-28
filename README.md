@@ -79,5 +79,5 @@ based on your needs
 
 #### city_temperature(city, days)
 
-Takes two parameters i.e, city and days and the city's temperature
+Takes two parameters i.e, city and days and returns the city's temperature
 
